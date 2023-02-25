@@ -19,7 +19,7 @@
     "@nestjs/common": "^7.5.5",
     "@nestjs/core": "^7.5.5",
     "@nestjs/testing": "^7.0.0",
-    "@nestjs/typeorm": "^7.1.0",
+    "@nestjs/typeorm": "^9.0.1",
     "@types/jest": "^27.0.0",
     "@types/node": "^18.11.13",
     "coveralls": "^3.0.5",
