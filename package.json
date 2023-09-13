@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-paginate",
+  "name": "@globalart/nestjs-typeorm-pagination",
   "version": "0.1.0",
   "author": "Philipp Petzold <ppetzold@protonmail.com>",
   "license": "MIT",
