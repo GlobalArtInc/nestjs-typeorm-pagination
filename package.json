@@ -1,56 +1,72 @@
 {
-  "name": "@globalart/nestjs-typeorm-pagination",
-  "author": {
-    "name": "GlobalArt, Inc"
-  },
-  "main": "./dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GlobalArtInc/nestjs-typeorm-pagination"
-  },
-  "description": "A simple pagination function to build a pagination object with types",
+  "name": "nestjs-paginate",
+  "version": "0.1.0",
+  "author": "Philipp Petzold <ppetzold@protonmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "description": "Pagination and filtering helper method for TypeORM repostiories or query builders using Nest.js framework.",
   "keywords": [
     "nestjs",
     "typeorm",
+    "express",
     "pagination",
-    "paginate"
+    "paginate",
+    "filtering",
+    "search"
   ],
-  "devDependencies": {
-    "@nestjs/common": "^7.5.5",
-    "@nestjs/core": "^7.5.5",
-    "@nestjs/testing": "^7.0.0",
-    "@nestjs/typeorm": "^7.1.0",
-    "@types/jest": "^27.0.0",
-    "@types/node": "^20.3.1",
-    "coveralls": "^3.0.5",
-    "jest": "^26.6.3",
-    "mysql": "^2.17.1",
-    "prettier": "^2.1.2",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^6.5.2",
-    "ts-jest": "^26.4.4",
-    "ts-node": "^10.0.0",
-    "typeorm": "0.3.14",
-    "typescript": "^4.0.5"
-  },
   "scripts": {
-    "format": "prettier --write \"**/*.ts\"",
-    "setup:test": "node_modules/.bin/ts-node node_modules/.bin/typeorm schema:sync",
-    "test": "jest --runInBand",
-    "coveralls": "yarn run test:cov --coverageReporters=text-lcov | coveralls",
+    "prebuild": "rimraf lib",
+    "build": "tsc",
+    "prepare": "tsc",
+    "dev:yalc": "nodemon --watch src --ext ts --exec 'npm run build && yalc push'",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:ci": "prettier --list-different \"src/**/*.ts\"",
+    "lint": "eslint -c .eslintrc.json --ext .ts --max-warnings 0 src",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "build": "rm -rf ./dist && tsc && npm run build:index",
-    "build:index": "rm -rf ./index.js ./index.d.ts && tsc -d --skipLibCheck ./index.ts",
-    "prepublish": "npm run format && npm run build"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^10.2.5",
+    "@nestjs/platform-express": "^10.2.5",
+    "@nestjs/common": "^10.2.5",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.4",
+    "@types/lodash": "^4.14.198",
+    "@types/node": "^18.17.15",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "fastify": "^4.23.1",
+    "jest": "^29.7.0",
+    "pg": "^8.11.3",
+    "prettier": "^3.0.3",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "sqlite3": "^5.1.6",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.3.17",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.1.1 || ^5.6.2 || ^7.0.0 || ^8.0.0 || ^9.0.0",
-    "typeorm": "^0.3.0"
+    "@nestjs/common": "^10.2.5",
+    "@nestjs/swagger": "^7.1.11",
+    "express": "^4.18.2",
+    "fastify": "^4.23.1",
+    "typeorm": "^0.3.17"
   },
   "jest": {
-    "coveragePathIgnorePatterns": [
-      "src/__tests__"
-    ],
     "moduleFileExtensions": [
       "js",
       "json",
@@ -61,8 +77,23 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
-    "coverageDirectory": "../coverage"
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   },
-  "version": "1.0.0",
-  "dependencies": {}
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppetzold/nestjs-paginate.git"
+  },
+  "homepage": "https://github.com/ppetzold/nestjs-paginate#readme",
+  "bugs": {
+    "url": "https://github.com/ppetzold/nestjs-paginate/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  }
 }

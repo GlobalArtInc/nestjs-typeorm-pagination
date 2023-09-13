@@ -1,32 +1,16 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": false,
-    "removeComments": false,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
-    "sourceMap": false,
-    "allowJs": false,
-    "rootDir": "./src",
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./lib",
     "baseUrl": "./",
-    "outDir": "./dist",
-    "lib": ["es2017"]
+    "incremental": true,
+    "skipLibCheck": true // https://stackoverflow.com/questions/55680391/typescript-error-ts2403-subsequent-variable-declarations-must-have-the-same-typ
   },
-  "include": [
-    "*.ts",
-    "**/*.ts"
-  ],
-  "exclude": [
-    "./index.ts",
-    "./index.d.ts",
-    "node_modules",
-    "./**/*.spec.ts",
-    "examples",
-    "src/__tests__"
-  ]
+  "include": ["src"]
 }
