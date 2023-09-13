@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json.schemastore.org/renovate",
+  "extends": [
+    "config:base"
+  ],
+  "updateLockFiles": true,
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "automerge": true
+    }
+  ]
+}

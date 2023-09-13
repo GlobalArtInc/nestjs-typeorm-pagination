@@ -1,8 +1,12 @@
-version: '3'
+version: '3.5'
+
 services:
-  db:
-    platform: linux/amd64
-    image: mysql:5.7
-    env_file: .env
+  postgres:
+    container_name: postgres_nestjs_paginate
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: test
     ports:
-      - 3306:3306
+      - "5432:5432"
