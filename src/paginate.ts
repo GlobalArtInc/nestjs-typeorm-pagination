@@ -39,10 +39,10 @@ export class Paginated<T> {
     data: T[]
     payload: {
         pagination: {
-            itemsPerPage: number
+            limit: number
             totalItems: number
-            currentPage: number
-            totalPages: number
+            page: number
+            total: number
             sortBy: SortBy<T>
             searchBy: Column<T>[]
             search: string
@@ -401,10 +401,10 @@ export async function paginate<T extends ObjectLiteral>(
         data: items,
         payload: {
             pagination: {
-                itemsPerPage: isPaginated ? limit : items.length,
+                limit: isPaginated ? limit : items.length,
                 totalItems: isPaginated ? totalItems : items.length,
-                currentPage: page,
-                totalPages,
+                page: page,
+                total: totalPages,
                 sortBy,
                 search: query.search,
                 searchBy: query.search ? searchBy : undefined,
