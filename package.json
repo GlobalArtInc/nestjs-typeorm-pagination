@@ -1,7 +1,7 @@
 {
-  "name": "@globalart/nestjs-typeorm-pagination",
+  "name": "@globalart/nest-typeorm-pagination",
   "version": "8.1.4",
-  "author": "Philipp Petzold <ppetzold@protonmail.com>",
+  "author": "GlobalArt, Inc",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -27,6 +27,10 @@
     "format:ci": "prettier --list-different \"src/**/*.ts\"",
     "lint": "eslint -c .eslintrc.json --ext .ts --max-warnings 0 src",
     "test": "jest",
+    "prepublish:npm": "npm run build",
+    "publish:npm": "release-it",
+    "prepublish:dev": "npm run build",
+    "publish:dev": "npm publish --access public --tag dev",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
@@ -52,7 +56,8 @@
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
     "typeorm": "^0.3.16",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "release-it": "17.3.0"
   },
   "dependencies": {
     "lodash": "^4.17.21"
@@ -77,14 +82,6 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ppetzold/nestjs-paginate.git"
-  },
-  "homepage": "https://github.com/ppetzold/nestjs-paginate#readme",
-  "bugs": {
-    "url": "https://github.com/ppetzold/nestjs-paginate/issues"
   },
   "publishConfig": {
     "access": "public"
