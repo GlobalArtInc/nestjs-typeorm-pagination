@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Column, SortBy } from '../helper'
 import { Paginated } from '../paginate'
 
 // class PaginatedLinksDocumented {
@@ -137,7 +136,7 @@ export class PaginatedDocumented<T> extends Paginated<T> {
         isArray: true,
         required: true,
         title: 'Array of entities',
-        type: 'object',
+        type: Object,
     })
     override data!: T[]
 
